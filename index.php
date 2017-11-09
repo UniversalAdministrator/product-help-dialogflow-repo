@@ -13,7 +13,7 @@ if($method == 'POST'){
 		case 'Help':
 			$loadFile = file_get_contents("install.json");
 			$json_install = json_decode($loadFile, true);
-			$speech = $json_install['task'][title];
+			$speech = $json_install['task']['taskbody']['context']['p'][0];
 
 
 			//$speech = "How can I help with the product?";
