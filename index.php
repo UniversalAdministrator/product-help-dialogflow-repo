@@ -23,8 +23,10 @@ if($method == 'POST'){
 			$speech = "Bye, good night";
 			break;
 
-		case 'anything':
-			$speech = "Yes, you can type anything here.";
+		case 'licensing':
+			$loadFile = file_get_contents("install.json");
+			$json_install = json_decode($loadFile, true);
+			$speech = $json_install['task'][title];
 			break;
 		
 		default:
