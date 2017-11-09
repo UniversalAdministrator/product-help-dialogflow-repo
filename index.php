@@ -11,7 +11,12 @@ if($method == 'POST'){
 
 	switch ($text) {
 		case 'Help':
-			$speech = "How can I help with the product?";
+			$loadFile = file_get_contents("install.json");
+			$json_install = json_decode($loadFile, true);
+			$speech = $json_install['task'][title];
+
+
+			//$speech = "How can I help with the product?";
 			break;
 
 		case 'bye':
